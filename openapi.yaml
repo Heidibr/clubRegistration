@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /clubs/{clubId}/forms:
+    get:
+      tags:
+        - form-controller
+      summary: Get the club's form
+      operationId: getFormByClub
+      parameters:
+        - name: clubId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FormDto'
+    post:
+      tags:
+        - form-controller
+      summary: Add form (only for demo and testing)
+      operationId: create
+      parameters:
+        - name: clubId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FormDto'
+  /clubs/{clubId}/forms/{formId}/registrations:
+    post:
+      tags:
+        - user-controller
+      summary: Add user
+      operationId: register
+      parameters:
+        - name: clubId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: formId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RegistrationDto'
+components:
+  schemas:
+    FormDto:
+      type: object
+      properties:
+        clubId:
+          type: string
+        memberTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemberType'
+        formId:
+          type: string
+        title:
+          type: string
+        registrationOpens:
+          type: string
+          format: date-time
+    MemberType:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    UserRegistration:
+      type: object
+      properties:
+        firstName:
+          type: string
+          maxLength: 100
+          minLength: 0
+        lastName:
+          type: string
+          maxLength: 100
+          minLength: 0
+        email:
+          type: string
+          format: email
+          maxLength: 255
+          minLength: 0
+        memberTypeId:
+          type: string
+          minLength: 1
+        dateOfBirth:
+          type: string
+          format: date
+        phoneNumber:
+          type: string
+          minLength: 1
+      required:
+        - dateOfBirth
+        - email
+        - firstName
+        - lastName
+        - memberTypeId
+        - phoneNumber
+    RegistrationDto:
+      type: object
+      properties:
+        id:
+          type: string
+        clubId:
+          type: string
+        formId:
+          type: string
+        memberTypeId:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date
+        submittedAt:
+          type: string
+          format: date-time

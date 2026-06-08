@@ -1,0 +1,14 @@
+{
+  "name": "clubadmin-tests",
+  "private": true,
+  "description": "Playwright end-to-end tests for clubAdmin. Self-contained: install and run from this folder.",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^24.10.1"
+  }
+}
