@@ -34,7 +34,7 @@ On load it resolves a `clubId`, fetches `GET /clubs/{clubId}/forms` to get the f
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/clubadmin.git
+git clone [https://github.com/username/clubadmin.git](https://github.com/Heidibr/clubRegistration.git)
 cd clubadmin
 
 # Install dependencies
@@ -133,7 +133,7 @@ npm run api:types
 - **UI library:** React 19. 
 - **Build tool / dev server:** Vite 8 - simple setup for react and single page applications without to much "nois" in the setup. 
 - **Styling:** Tailwind CSS v4 via the `@tailwindcss/vite` plugin. I kept the design system small with a handful of custom color tokens, so the look stays consistent without a lot of CSS files. 
-- **UI primitives:** `radix-ui` for accessible building blocks (the toast notifications) and `@phosphor-icons/react` for icons — no need to hand-roll these. Since most components was simple and similar to many components i have created several times i chose to create the components from the ground with simple tailwindcss. I had som existing code for both toast(with the se of radix) and a simple wizard so I took a lot of inspiration from those. I could have chosen to use radix more but i did nor see the need. 
+- **UI primitives:** `radix-ui` for accessible building blocks (the toast notifications) and `@phosphor-icons/react` for icons — no need to hand-roll these. Since most components was simple and similar to many components i have created several times i chose to create the components from the ground with simple tailwindcss. I had som existing code for both toast(with the se of radix) and a simple wizard so I took a lot of inspiration from those. I could have chosen to use radix more but i did nor see the need in all the components (and i got a bit lost in going a bit basic for fun) in a bigger project it would be better to lean on component libraries, instead of "inventing the wheel" all over again. 
 - **Typed API:** `openapi-typescript` generates the request/response types straight from the backend's OpenAPI spec. Generating types from the contract means the frontend and backend can't silently drift apart.
 - **Linting:** ESLint 10 with `typescript-eslint`, plus the React Hooks and React Refresh plugins, to keep hook usage correct and the code consistent. Always nice to have when working in a team. 
 - **Task runner:** A small Makefile wraps the npm scripts so the common commands are easy to remember.
@@ -147,7 +147,7 @@ npm run api:types
 - Add tests for the wizard navigation and validation logic.
 - Loading and error states while the form is being fetched.
 - I would add Redux and use RTK queries in a biger app with more endpoints. In addition to it being smooth to implement it is better for caching and loading and making the app stable This makes it extreamly easy to genereate and controll the api connection with hooks. 
-- For the general features. I would also like to add a direct edit link in the preview to go right back to the field you want to change. 
+- For the general features. I would also like to add a direct edit link in the preview to go right back to the field you want to change.
 
 
 ## Disclaimer
