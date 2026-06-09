@@ -144,11 +144,11 @@ npm run api:types
 ## Future improvements
 
 - Let the user choose a club in a more intuitive way. Creating a startpage with a simple select so people can sind their club and find the form without have to get the link sent to them personally. 
-- Add tests for the wizard navigation and validation logic.
+- Add tests for the wizard navigation and validation logic. Add vitest for more testcoverage and focused tests in the frontend code. A combination of this and playwright will give good coverage.
 - Loading and error states while the form is being fetched.
-- I would add Redux and use RTK queries in a biger app with more endpoints. In addition to it being smooth to implement it is better for caching and loading and making the app stable This makes it extreamly easy to genereate and controll the api connection with hooks. 
+- I would add Redux and use RTK queries in a biger app with more endpoints. In addition to it being smooth to implement it is better for caching and loading and making the app stable This makes it extreamly easy to genereate and controll the api connection with hooks.
+- An idea is also to make the entire form dynamic and prepare the frontend for all form inputfields - så that the form will render correctly with checkboxes and radiobuttons and so on. This is however not neccessary at this point as the form is fixed and fields fixed. 
 - For the general features. I would also like to add a direct edit link in the preview to go right back to the field you want to change.
-- Add vitest for more testcoverage and focused tests in the frontend code. A combination of this and playwright will give good coverage.
 
 
 ## Disclaimer
