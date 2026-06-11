@@ -1,19 +1,19 @@
 .PHONY: dev build lint preview api-types test up down
 
 dev:
-	npm run dev
+	pnpm run dev
 
 build:
-	npm run build
+	pnpm run build
 
 lint:
-	npm run lint
+	pnpm run lint
 
 preview:
-	npm run preview
+	pnpm run preview
 
 api-types:
-	npm run api:types
+	pnpm run api:types
 
 test:
 	cd tests && npm test

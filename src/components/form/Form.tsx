@@ -30,12 +30,12 @@ export default function Form({ clubId }: Readonly<FormProps>) {
     initialValues,
     validate
   );
-  const { data: form, error: formError } = useGetForm(clubId);
+  const { data: form, loading: formLoading, error: formError } = useGetForm(clubId);
   const formNotFound = formError instanceof ApiError && formError.status === 404;
 
   const memberTypes = form?.memberTypes ?? [];
-  const title = form?.title ?? "Joun club";
-  const description = "Please fill choose a memebership and fille out the rest of the form"
+  const title = form?.title ?? "Join club";
+  const description = "Please choose a membership and fill out the rest of the form";
   const formId = form?.formId;
 
   const { currentStep, isLastStep, goToStep, setCurrentStep } = useWizard(
@@ -134,6 +134,14 @@ export default function Form({ clubId }: Readonly<FormProps>) {
       }
     }
   };
+
+  if (formLoading && !form) {
+    return (
+      <div className="w-full max-w-md mx-auto py-6 sm:py-8 px-4 sm:px-6 text-left">
+        <p className="text-navy">Loading form…</p>
+      </div>
+    );
+  }
 
   if (formNotFound) {
     return (
